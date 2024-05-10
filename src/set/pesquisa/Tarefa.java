@@ -1,5 +1,7 @@
 package set.pesquisa;
 
+import java.util.Objects;
+
 public class Tarefa {
 
     private String description;
@@ -20,6 +22,19 @@ public class Tarefa {
 
     public void setDone(boolean done) {
         this.done = done;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Tarefa tarefa = (Tarefa) o;
+        return Objects.equals(description, tarefa.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(description);
     }
 
     @Override
